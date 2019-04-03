@@ -1,0 +1,6 @@
+#!/bin/sh
+# Usage: bin/release BUILD_DIR
+
+cat << EOF
+--- {}
+EOF

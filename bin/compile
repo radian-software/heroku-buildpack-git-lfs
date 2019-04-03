@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Usage: bin/compile BUILD_DIR CACHE_DIR ENV_DIR
+
+set -e
+set -o pipefail
+
+build_dir="$1"
+
+function die {
+    echo "$@" >&2
+    exit 1
+}
+
+echo "-----> Download Git LFS assets"
+(
+
+    if ! command -v git-lfs &>/dev/null; then
+        die "Git LFS is not installed!"
+    fi
+
+    if [[ -z "$HEROKU_BUILDPACK_GIT_LFS_REPO" ]]; then
+        die "Env var HEROKU_BUILDPACK_GIT_LFS_REPO is not set"
+    fi
+
+    branch="${HEROKU_BUILDPACK_GIT_LFS_BRANCH:-master}"
+
+    cd "$build_dir"
+    git init
+    git remote add origin "$HEROKU_BUILDPACK_GIT_LFS_REPO"
+    git fetch origin
+    git symbolic-ref HEAD "refs/remotes/origin/${branch}"
+    git lfs pull
+    rm -rf .git
+
+) | sed -u 's/^/       /'
