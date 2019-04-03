@@ -20,7 +20,7 @@ echo "-----> Download Git LFS assets"
         die "Git LFS is not installed!"
     fi
 
-    if [[ ! -f "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO" ]]; then
+    if [[ -f "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO" ]]; then
         repo="$(< "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO")"
     else
         die "Env var HEROKU_BUILDPACK_GIT_LFS_REPO is not set"
