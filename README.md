@@ -1,4 +1,4 @@
-# Emacs buildpack for git-lfs
+# Heroku buildpack for git-lfs
 
 This is a [Heroku buildpack][buildpacks] which downloads your [Git
 LFS][git-lfs] assets during deployment, which Heroku does not do by
