@@ -6,6 +6,7 @@ set -e
 set -o pipefail
 
 build_dir="$1"
+env_dir="$3"
 
 function die {
     echo "$@" >&2
@@ -19,11 +20,12 @@ echo "-----> Download Git LFS assets"
         die "Git LFS is not installed!"
     fi
 
-    if [[ -z "$HEROKU_BUILDPACK_GIT_LFS_REPO" ]]; then
+    if [[ ! -f "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO" ]]; then
         die "Env var HEROKU_BUILDPACK_GIT_LFS_REPO is not set"
     fi
 
-    branch="${HEROKU_BUILDPACK_GIT_LFS_BRANCH:-master}"
+    branch="$(< "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO")"
+    branch="${branch:-master}"
 
     cd "$build_dir"
     git init
