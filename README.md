@@ -1,8 +1,8 @@
 # Heroku buildpack for git-lfs
 
-This is a [Heroku buildpack][buildpacks] which downloads your [Git
-LFS][git-lfs] assets during deployment, which Heroku does not do by
-default.
+This is a [Heroku buildpack][buildpacks] which installs [Git
+LFS][git-lfs] and downloads your Git LFS assets during deployment
+(which Heroku does not do by default).
 
 ## Usage
 
@@ -21,7 +21,8 @@ Set the following environment variable for your app:
   details on the syntax.
 
 After the next time you deploy your app, Git LFS assets will be
-downloaded and checked out automatically.
+downloaded and checked out automatically, and Git LFS will be
+available on `PATH` for your app.
 
 [buildpacks]: https://devcenter.heroku.com/articles/buildpacks
 [git-lfs]: https://git-lfs.github.com/
