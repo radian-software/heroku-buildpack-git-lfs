@@ -52,12 +52,14 @@ export PATH="$HOME/.heroku/bin:$PATH"
 EOF
     export PATH="$build_dir/.heroku/bin:$PATH"
 
+    git version
     git-lfs version
 
     git init
     git remote add origin "$repo"
     git fetch origin
-    echo "$SOURCE_VERSION" > .git/HEAD
+    git reset --mixed "$SOURCE_VERSION"
+    git lfs install
     git lfs pull
     rm -rf .git
 
