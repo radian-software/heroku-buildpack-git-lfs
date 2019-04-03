@@ -24,16 +24,13 @@ buildpacks -a <myapp>`. Make sure that this buildpack is listed
 *after* heroku-buildpack-apt, since Git LFS must be installed when
 this buildpack runs!
 
-Set the following environment variables for your app:
+Set the following environment variable for your app:
 
 * `HEROKU_BUILDPACK_GIT_LFS_REPO` to the clone URL of the repository
   from which to download Git LFS assets. This should include any
   username, password, or personal access token which is necessary to
   clone noninteractively. See [here][noninteractive-clone] for
   details on the syntax.
-* `HEROKU_BUILDPACK_GIT_LFS_BRANCH` to the name of the branch from
-  which to download Git LFS assets (optional if you want to use
-  `master`).
 
 After the next time you deploy your app, Git LFS assets will be
 downloaded and checked out automatically.

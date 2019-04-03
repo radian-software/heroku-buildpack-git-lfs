@@ -29,7 +29,7 @@ echo "-----> Download Git LFS assets"
     git init
     git remote add origin "$HEROKU_BUILDPACK_GIT_LFS_REPO"
     git fetch origin
-    git symbolic-ref HEAD "refs/remotes/origin/${branch}"
+    echo "SOURCE_VERSION" > .git/HEAD
     git lfs pull
     rm -rf .git
 
