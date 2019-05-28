@@ -27,4 +27,4 @@ available on `PATH` for your app.
 [buildpacks]: https://devcenter.heroku.com/articles/buildpacks
 [git-lfs]: https://git-lfs.github.com/
 [heroku-buildpack-apt]: https://github.com/heroku/heroku-buildpack-apt
-[noninteractive-clone]: https://stackoverflow.com/q/10054318/3538165
+[noninteractive-clone]: https://stackoverflow.com/a/50193010/3538165
