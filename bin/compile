@@ -23,12 +23,6 @@ else
     die "Env var HEROKU_BUILDPACK_GIT_LFS_REPO is not set"
 fi
 
-if [[ -f "$env_dir/HEROKU_BUILDPACK_GIT_LFS_BRANCH" ]]; then
-    branch="$(< "$env_dir/HEROKU_BUILDPACK_GIT_LFS_BRANCH")"
-else
-    branch="master"
-fi
-
 echo "-----> Install Git LFS"
 (
     pushd /tmp
