@@ -24,6 +24,13 @@ After the next time you deploy your app, Git LFS assets will be
 downloaded and checked out automatically, and Git LFS will be
 available on `PATH` for your app.
 
+## Tips
+
+If you are using Git LFS and want to deploy to Heroku using Git, make
+sure to provide the `--no-verify` flag to `git push`, since Heroku's
+Git server will reject LFS assets and this will cause an error
+otherwise.
+
 [buildpacks]: https://devcenter.heroku.com/articles/buildpacks
 [git-lfs]: https://git-lfs.github.com/
 [heroku-buildpack-apt]: https://github.com/heroku/heroku-buildpack-apt
