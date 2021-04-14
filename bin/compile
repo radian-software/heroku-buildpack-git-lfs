@@ -23,6 +23,10 @@ else
     die "Env var HEROKU_BUILDPACK_GIT_LFS_REPO is not set"
 fi
 
+if [[ -f "$env_dir/HEROKU_TEST_RUN_COMMIT_VERSION" ]]; then
+    CI_SOURCE_VERSION="$(< "$env_dir/HEROKU_TEST_RUN_COMMIT_VERSION")"
+fi
+
 echo "-----> Install Git LFS"
 (
     pushd /tmp
@@ -52,7 +56,7 @@ EOF
     git init
     git remote add origin "$repo"
     git fetch origin
-    git reset --mixed "$SOURCE_VERSION"
+    git reset --mixed "${SOURCE_VERSION:-$CI_SOURCE_VERSION}"
     git lfs install
     git lfs pull
     rm -rf .git
