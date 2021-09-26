@@ -12,7 +12,8 @@ To configure Git LFS for your Heroku app called `<myapp>`, run:
         https://github.com/raxod502/heroku-buildpack-git-lfs  \
         -a <myapp>
 
-Set the following environment variable for your app:
+Set the following environment variable (i.e. using `heroku
+config:set`) for your app:
 
 * `HEROKU_BUILDPACK_GIT_LFS_REPO` to the clone URL of the repository
   from which to download Git LFS assets. This should include any
