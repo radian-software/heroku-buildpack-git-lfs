@@ -15,11 +15,11 @@ To configure Git LFS for your Heroku app called `<myapp>`, run:
 Set the following environment variable (i.e. using `heroku
 config:set`) for your app:
 
-* `HEROKU_BUILDPACK_GIT_LFS_REPO` to the clone URL of the repository
-  from which to download Git LFS assets. This should include any
-  username, password, or personal access token which is necessary to
-  clone noninteractively. See [here][noninteractive-clone] for
-  details on the syntax.
+* `BUILDPACK_GIT_LFS_REPO` to the clone URL of the repository from
+  which to download Git LFS assets. This should include any username,
+  password, or personal access token which is necessary to clone
+  noninteractively. See [here][noninteractive-clone] for details on
+  the syntax.
 
 After the next time you deploy your app, Git LFS assets will be
 downloaded and checked out automatically, and Git LFS will be

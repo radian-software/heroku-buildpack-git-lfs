@@ -17,10 +17,12 @@ function indent {
     sed -u 's/^/       /'
 }
 
-if [[ -f "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO" ]]; then
+if [[ -f "$env_dir/BUILDPACK_GIT_LFS_REPO" ]]; then
+    repo="$(< "$env_dir/BUILDPACK_GIT_LFS_REPO")"
+elif [[ -f "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO" ]]; then
     repo="$(< "$env_dir/HEROKU_BUILDPACK_GIT_LFS_REPO")"
 else
-    die "Env var HEROKU_BUILDPACK_GIT_LFS_REPO is not set"
+    die "Env var BUILDPACK_GIT_LFS_REPO is not set"
 fi
 
 if [[ -f "$env_dir/HEROKU_TEST_RUN_COMMIT_VERSION" ]]; then
