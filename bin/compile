@@ -32,7 +32,7 @@ fi
 echo "-----> Install Git LFS"
 (
     pushd /tmp
-    wget https://github.com/git-lfs/git-lfs/releases/download/v2.13.3/git-lfs-linux-amd64-v2.13.3.tar.gz \
+    wget https://github.com/git-lfs/git-lfs/releases/download/v3.7.0/git-lfs-linux-amd64-v3.7.0.tar.gz \
          -O git-lfs.tar.gz
     tar -xvf /tmp/git-lfs.tar.gz
     popd
