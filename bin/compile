@@ -44,7 +44,7 @@ echo "-----> Download Git LFS assets"
     pushd "$build_dir"
 
     mkdir -p .heroku/bin
-    mv /tmp/git-lfs .heroku/bin/
+    mv /tmp/git-lfs-3.7.0/git-lfs .heroku/bin/
 
     mkdir -p .profile.d
     cat <<"EOF" > .profile.d/heroku-buildpack-git-lfs.sh
